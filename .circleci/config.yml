@@ -23,7 +23,7 @@ jobs:
           #at: /home/circleci/hogeee
           #at: /home/circleci/my_test
           #at: /home/circleci
-          at: /home
+          at: /tmp
   three:
     #working_directory: /home/circleci/my_test
     docker:
