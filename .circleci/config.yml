@@ -22,8 +22,8 @@ jobs:
       #persist_to_workspaceで保存した内容を以下で指定するディレクトリにコピーする。
       - attach_workspace:
       #    #at: /home/circleci/hogeee
-      #    #at: /home/circleci/my_test
-           at: /home/circleci
+           at: /home/circleci/my_test
+           #at: /home/circleci
       #    at: /tmp
   three:
     #working_directory: /home/circleci/my_test
