@@ -1,43 +1,21 @@
 version: 2
 jobs:
   one:
+    working_directory: /home/circleci/my_test
     docker:
       - image: circleci/ruby:2.4.1-jessie
-    environment:
-      - FOO: "bar"
     steps:
       - checkout
-      - run: echo "A first hello"
-      - run: mkdir -p my_workspace
-      - run: echo $FOO > my_workspace/echo-output
       - persist_to_workspace:
-          # Must be an absolute path, or relative path from working_directory
-          root: my_workspace
-          # Must be relative path from root
-          paths:
-            - echo-output      
+        root: /hoge/circleci
+        paths:
+          - my_test
   two:
     docker:
       - image: circleci/ruby:2.4.1-jessie
-    steps:
-      - checkout
-      - run: echo "A more familiar hi"  
-      - attach_workspace:
-          # Must be absolute path or relative path from working_directory
-          at: my_workspace
-
-      - run: |
-          if [[ $(cat my_workspace/echo-output) == "bar" ]]; then
-            echo "It worked!";
-          else
-            echo "Nope!"; exit 1
-          fi
   three:
     docker:
       - image: circleci/ruby:2.4.1-jessie
-    steps:
-      - checkout
-      - run: echo "this is third step"
 workflows:
   version: 2
   one_and_two:
@@ -50,5 +28,3 @@ workflows:
       - three:
           requires:
             - two
-# added another branch 
-# comment change
