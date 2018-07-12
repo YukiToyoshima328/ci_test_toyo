@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: circleci/ruby:2.4.1-jessie
     steps:
-      - checkout
+      #- checkout
       - persist_to_workspace:
           root: /home/circleci
           paths:
