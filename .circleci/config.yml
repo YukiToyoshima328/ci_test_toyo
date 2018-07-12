@@ -15,15 +15,15 @@ jobs:
       - image: circleci/ruby:2.4.1-jessie
     steps:
       - run: echo 'hoge2'
-      #- attach_workspace:
-      #    at: /home/circleci/my_test
+      - attach_workspace:
+          at: /home/circleci/my_test
   three:
     docker:
       - image: circleci/ruby:2.4.1-jessie
     steps:
       - run: echo 'hoge3'
-      - attach_workspace:
-          at: /home/circleci/my_test
+      #- attach_workspace:
+      #    at: /home/circleci/my_test
 workflows:
   version: 2
   one_and_two:
