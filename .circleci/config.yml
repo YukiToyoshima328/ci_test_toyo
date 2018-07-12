@@ -14,7 +14,7 @@ jobs:
           #  - ~
             - my_test
   two:
-    #working_directory: /home/circleci
+    working_directory: /home/circleci/my_test2
     docker:
       - image: circleci/ruby:2.4.1-jessie
     steps:
@@ -31,8 +31,8 @@ jobs:
       - image: circleci/ruby:2.4.1-jessie
     steps:
       - run: echo 'hoge3'
-      - attach_workspace:
-          at: /home/circleci/my_hogehoge
+      #- attach_workspace:
+      #    at: /home/circleci/my_hogehoge
 workflows:
   version: 2
   one_and_two:
