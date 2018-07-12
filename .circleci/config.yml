@@ -47,6 +47,10 @@ workflows:
           type: approval
           requires:
             - one
+          filters:
+            branches:
+              only:
+                - master
       - three:
           requires:
             - two
