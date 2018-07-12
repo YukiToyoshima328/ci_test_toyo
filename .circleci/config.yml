@@ -13,7 +13,7 @@ jobs:
           #  - ~
             - my_test
   two:
-    working_directory: /home/circleci
+    #working_directory: /home/circleci
     docker:
       - image: circleci/ruby:2.4.1-jessie
     steps:
