@@ -18,8 +18,8 @@ jobs:
     steps:
       - run: echo 'hoge2'
       - attach_workspace:
-          #at: /home/circleci/my_test
-          at: /home/circleci
+          at: /home/circleci/my_test
+          #at: /home/circleci
   three:
     docker:
       - image: circleci/ruby:2.4.1-jessie
