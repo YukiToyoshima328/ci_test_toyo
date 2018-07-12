@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - persist_to_workspace:
-          root: /hoge/circleci
+          root: /home/circleci
           paths:
             - my_test
   two:
