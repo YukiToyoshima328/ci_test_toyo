@@ -17,10 +17,11 @@ jobs:
       - image: circleci/ruby:2.4.1-jessie
     steps:
       - run: echo 'hoge2'
+      #persist_to_workspaceで保存した内容を以下で指定するディレクトリ内に保存する
       - attach_workspace:
-          at: /home/circleci/hogeee
+          #at: /home/circleci/hogeee
           #at: /home/circleci/my_test
-          #at: /home/circleci
+          at: /home/circleci
   three:
     docker:
       - image: circleci/ruby:2.4.1-jessie
