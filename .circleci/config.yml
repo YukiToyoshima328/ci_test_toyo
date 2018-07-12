@@ -1,22 +1,23 @@
 version: 2
 jobs:
   one:
-    working_directory: /home/circleci/my_test
+    #working_directory: /home/circleci/my_test
     docker:
       - image: circleci/ruby:2.4.1-jessie
     steps:
-      #- checkout
+      - checkout
       - persist_to_workspace:
           root: /home/circleci
-          paths:
-            - my_test
+          #paths:
+          #  - my_test
   two:
     docker:
       - image: circleci/ruby:2.4.1-jessie
     steps:
       - run: echo 'hoge2'
       - attach_workspace:
-          at: /home/circleci/my_test
+          #at: /home/circleci/my_test
+          at: /home/circleci
   three:
     docker:
       - image: circleci/ruby:2.4.1-jessie
