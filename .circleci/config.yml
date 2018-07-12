@@ -6,10 +6,10 @@ jobs:
       - image: circleci/ruby:2.4.1-jessie
     steps:
       - checkout
-    #  - persist_to_workspace:
-    #    root: /hoge/circleci
-    #    paths:
-    #      - my_test
+      - persist_to_workspace:
+        root: /hoge/circleci
+        paths:
+          - my_test
   two:
     docker:
       - image: circleci/ruby:2.4.1-jessie
