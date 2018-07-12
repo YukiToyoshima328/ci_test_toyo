@@ -4,8 +4,8 @@ jobs:
     #working_directory: /home/circleci/my_test
     docker:
       - image: circleci/ruby:2.4.1-jessie
-    #steps:
-    #  - checkout
+    steps:
+      - checkout
     #  - persist_to_workspace:
     #    root: /hoge/circleci
     #    paths:
