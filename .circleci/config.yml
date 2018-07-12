@@ -21,7 +21,7 @@ jobs:
     steps:
       - run: echo 'hoge3'
       - attach_workspace:
-        at: /home/circleci/my_test
+          at: /home/circleci/my_test
 workflows:
   version: 2
   one_and_two:
