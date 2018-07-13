@@ -1,7 +1,9 @@
-run_echo: &run_echo
-  name: Run Echo
-  command: |
-    mkdir -p ~/hogeeee
+references:
+  commands:
+    run_echo: &run_echo
+      name: Run Echo
+      command: |
+        mkdir -p ~/hogeeee
 
 version: 2
 jobs:
