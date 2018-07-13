@@ -28,11 +28,12 @@ jobs:
           paths:
             - ./node_modules
   three:
-    <<: *run_echo
+    #<<: *run_echo
     working_directory: /home/circleci/my_test
     docker:
       - image: circleci/ruby:2.4.1-jessie
     steps:
+      - run *run_echo
       - attach_workspace:
           at: /home/circleci
       #- run: echo 'hoge3'
