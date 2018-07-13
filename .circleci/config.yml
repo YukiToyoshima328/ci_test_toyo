@@ -11,6 +11,7 @@ run_echo2: &run_echo2
     case "${CIRCLE_BRANCH}" in 
       master)
         ENVIRONMENT_LABEL=本番
+        ;;
       staging)
         ENVIRONMENT_LABEL=ステージ
         ;;
