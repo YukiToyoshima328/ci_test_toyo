@@ -15,8 +15,8 @@ jobs:
       - image: circleci/node:8.9.4
     steps:
       - run: echo 'hoge2'
-      - run: sudo chown -R root:root /usr/local/bin /usr/local/lib/node_modules
-      - run: sudo npm install -g npm@6.0.1 
+      #- run: sudo chown -R root:root /usr/local/bin /usr/local/lib/node_modules
+      #- run: sudo npm install -g npm@6.0.1 
       #- run: npm install
   three:
     #working_directory: /home/circleci/my_test
