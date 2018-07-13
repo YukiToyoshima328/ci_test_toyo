@@ -16,7 +16,7 @@ run_echo2: &run_echo2
         ENVIRONMENT_LABEL=ステージ
         ;;
     esac
-    echo "export ENVIRONMENT_LABEL='$ENVIRONMENT_LABEL'"
+    echo "export ENVIRONMENT_LABEL='$ENVIRONMENT_LABEL'" >> $BASH_ENV
 
 version: 2
 jobs:
@@ -50,9 +50,9 @@ jobs:
     steps:
       - run: *run_echo
       - run: *run_echo2
-      #- run: echo "$ENVIRONMENT_LABEL" > env.txt
+      - run: echo "$ENVIRONMENT_LABEL" > env.txt
       #- run: echo "${TOYO_HIPCHAT_ROOM_ID}" > env.txt
-      - run: echo "${HIPCHAT_AUTH_TOKEN}" > env.txt
+      #- run: echo "${HIPCHAT_AUTH_TOKEN}" > env.txt
       #- deploy:
       #    name: Make Env txt
       #    command: |
