@@ -51,10 +51,17 @@ jobs:
       - run: *run_echo
       - run: *run_echo2
       #- run: echo "$ENVIRONMENT_LABEL" > env.txt
-      - deploy:
-          name: Make Env txt
+      #- deploy:
+      #    name: Make Env txt
+      #    command: |
+      #      echo "$ENVIRONMENT_LABEL" > env.txt
+      -deploy:
+          name: hipchat test
           command: |
-            echo "$ENVIRONMENT_LABEL" > env.txt
+            curl -H "Content-Type: application/json" \
+                 -X POST \
+                 -d "hogehoge"
+                 "https://api.hipchat.com/v2/room/${TOYO_HIPCHAT_ROOM_ID}/notification?auth_token=${HIPCHAT_AUTH_TOKEN}"
       - attach_workspace:
           at: /home/circleci
       #- run: echo 'hoge3'
