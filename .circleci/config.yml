@@ -35,7 +35,7 @@ jobs:
     docker:
       - image: circleci/ruby:2.4.1-jessie
     steps:
-      - run *run_echo
+      - run: *run_echo
       - attach_workspace:
           at: /home/circleci
       #- run: echo 'hoge3'
