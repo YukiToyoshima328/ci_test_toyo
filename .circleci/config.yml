@@ -38,13 +38,10 @@ workflows:
   one_and_two:
     jobs:
       - one
-      - two:
+      - three:
           requires:
             - one
       #- two:
       #    type: approval
       #    requires:
       #      - one
-      - three:
-          requires:
-            - two
