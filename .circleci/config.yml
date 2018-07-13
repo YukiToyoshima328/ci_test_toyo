@@ -1,3 +1,8 @@
+run_echo: &run_echo
+  name: Run Echo
+  command: |
+    echo "hogee"
+
 version: 2
 jobs:
   two:
@@ -23,6 +28,7 @@ jobs:
           paths:
             - ./node_modules
   three:
+    <<: *run_echo
     working_directory: /home/circleci/my_test
     docker:
       - image: circleci/ruby:2.4.1-jessie
