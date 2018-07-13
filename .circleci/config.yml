@@ -60,7 +60,7 @@ jobs:
           command: |
             curl -H "Content-Type: application/json" \
                  -X POST \
-                 -d "hogehoge"
+                 -d "hogehoge" \
                  "https://api.hipchat.com/v2/room/${TOYO_HIPCHAT_ROOM_ID}/notification?auth_token=${HIPCHAT_AUTH_TOKEN}"
       - attach_workspace:
           at: /home/circleci
