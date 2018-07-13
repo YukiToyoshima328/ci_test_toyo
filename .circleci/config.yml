@@ -5,6 +5,18 @@ references:
       command: |
         mkdir -p ~/hogeeee
 
+run_echo2: &run_echo2
+  name: Run Echo 2
+  command: |
+    case "${CIRCLE_BRANCH}" in 
+      master)
+        ENVIRONMENT_LABEL=本番
+      staging)
+        ENVIRONMENT_LABEL=ステージ
+        ;;
+    esac
+    echo "export ENVIRONMENT_LABEL='$ENVIRONMENT_LABEL'"
+
 version: 2
 jobs:
   two:
@@ -36,6 +48,8 @@ jobs:
       - image: circleci/ruby:2.4.1-jessie
     steps:
       - run: *run_echo
+      - run: *run_echo2
+      - run: echo "$ENVIRONMENT_LABEL"
       - attach_workspace:
           at: /home/circleci
       #- run: echo 'hoge3'
