@@ -50,7 +50,11 @@ jobs:
     steps:
       - run: *run_echo
       - run: *run_echo2
-      - run: echo "$ENVIRONMENT_LABEL" > env.txt
+      #- run: echo "$ENVIRONMENT_LABEL" > env.txt
+      - deploy:
+          name: Make Env txt
+          command: |
+            echo "$ENVIRONMENT_LABEL" > env.txt
       - attach_workspace:
           at: /home/circleci
       #- run: echo 'hoge3'
