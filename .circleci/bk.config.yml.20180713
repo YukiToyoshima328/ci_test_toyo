@@ -8,22 +8,31 @@ jobs:
       # working directoryで指定しない場合はprojectという名前のディレクリーでcheckoutされる
       - checkout
       - run: echo 'hoge1'
-
+      - persist_to_workspace:
+          root: /home/circleci
+          paths:
+          #  - ~
+            - my_test
   two:
     working_directory: /home/circleci/my_test/hoge
     docker:
-      - image: circleci/node:8.9.4
+      - image: circleci/ruby:2.4.1-jessie
     steps:
       - run: echo 'hoge2'
-      - run: sudo chown -R root:root /usr/local/bin /usr/local/lib/node_modules
-      - run: sudo npm install -g npm@6.0.1 
-      - run: npm install
+      #persist_to_workspaceで保存した内容を以下で指定するディレクトリにコピーする。
+      - attach_workspace:
+      #    #at: /home/circleci/hogeee
+           at: /home/circleci/my_test
+           #at: /home/circleci
+      #    at: /tmp
   three:
     #working_directory: /home/circleci/my_test
     docker:
       - image: circleci/ruby:2.4.1-jessie
     steps:
       - run: echo 'hoge3'
+      #- attach_workspace:
+      #    at: /home/circleci/my_hogehoge
 workflows:
   version: 2
   one_and_two:
