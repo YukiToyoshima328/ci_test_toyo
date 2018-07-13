@@ -35,7 +35,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /home/circleci
-      - run: echo 'hoge3'
+      #- run: echo 'hoge3'
       - restore_cache:
           keys:
             - npm-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
