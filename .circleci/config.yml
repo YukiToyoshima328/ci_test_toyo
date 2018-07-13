@@ -38,6 +38,9 @@ jobs:
       - image: circleci/ruby:2.4.1-jessie
     steps:
       - run: echo 'hoge3'
+      - restore_cache:
+          keys:
+            - npm-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
 workflows:
   version: 2
   one_and_two:
