@@ -55,7 +55,7 @@ jobs:
       #    name: Make Env txt
       #    command: |
       #      echo "$ENVIRONMENT_LABEL" > env.txt
-      -deploy:
+      - deploy:
           name: hipchat test
           command: |
             curl -H "Content-Type: application/json" \
