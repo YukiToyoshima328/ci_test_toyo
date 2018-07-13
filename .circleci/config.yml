@@ -8,13 +8,19 @@ jobs:
       # working directoryで指定しない場合はprojectという名前のディレクリーでcheckoutされる
       - checkout
       - run: echo 'hoge1'
+      - persist_to_workspace:
+          root: /home/circleci
+          paths:
+            - my_test
 
   two:
-    working_directory: /home/circleci/my_test/hoge
+    working_directory: /home/circleci/my_test
     docker:
       - image: circleci/node:8.9.4
     steps:
       - run: echo 'hoge2'
+      - attach_workspace:
+          at: /home/circleci
       #- restore_cache:
       #    keys:
       #      - npm-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
