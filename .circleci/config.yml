@@ -23,7 +23,7 @@ jobs:
           paths:
             - ./node_modules
   three:
-    #working_directory: /home/circleci/my_test
+    working_directory: /home/circleci/my_test
     docker:
       - image: circleci/ruby:2.4.1-jessie
     steps:
