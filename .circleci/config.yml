@@ -15,13 +15,13 @@ jobs:
       - image: circleci/node:8.9.4
     steps:
       - run: echo 'hoge2'
-      - restore_cache:
-          keys:
-            - npm-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      #- restore_cache:
+      #    keys:
+      #      - npm-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
       #- run: sudo chown -R circleci:circleci /usr/local/bin /usr/local/lib/node_modules
       
       #- run: sudo npm install -g npm@6.0.1 
-      #- run: npm install
+      - run: npm install
   three:
     #working_directory: /home/circleci/my_test
     docker:
