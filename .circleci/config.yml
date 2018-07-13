@@ -1,7 +1,7 @@
 run_echo: &run_echo
   name: Run Echo
   command: |
-    echo "hogee"
+    mkdir -p ~/hogeeee
 
 version: 2
 jobs:
