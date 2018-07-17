@@ -49,12 +49,14 @@ jobs:
       - image: circleci/ruby:2.4.1-jessie
     steps:
       - run: *run_echo
-      - run: *run_echo2
-      - run: echo "$ENVIRONMENT_LABEL" > env.txt
-      #- deploy:
-      #    name: ENVIRONMENT_LABELの書き込み
-      #    command: |
-      #      echo "$ENVIRONMENT_LABEL" > env.txt
+      #- run: *run_echo2
+      #- run: echo "$ENVIRONMENT_LABEL" > env.txt
+      - deploy:
+          <<: *run_echo2
+      - deploy:
+          name: ENVIRONMENT_LABELの書き込み
+          command: |
+            echo "$ENVIRONMENT_LABEL" > env.txt
       #- run: echo "${TOYO_HIPCHAT_ROOM_ID}" > env.txt
       #- run: echo "${HIPCHAT_AUTH_TOKEN}" > env.txt
       #- deploy:
